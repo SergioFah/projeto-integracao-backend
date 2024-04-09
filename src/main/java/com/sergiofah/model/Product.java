@@ -22,11 +22,11 @@ public class Product {
     }
 
     public String getCategory() {
-        return (line.getLine() + category.getCategory());
+        return (category.getCategory());
     }
 
     public String getModel() {
-        return (line.getLine() + category.getCategory() + " " + model);
+        return (line.getLine() + " " + model);
     }
 
     public String getDescr() {

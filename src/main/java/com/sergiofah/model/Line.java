@@ -1,5 +1,8 @@
 package com.sergiofah.model;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public enum Line {
     CRONOS("Cronos"),
     ARES("Ares");
@@ -11,4 +14,5 @@ public enum Line {
     public String getLine() {
         return line;
     }
+
 }
