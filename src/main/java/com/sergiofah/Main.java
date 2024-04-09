@@ -1,17 +1,17 @@
 package com.sergiofah;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import com.sergiofah.model.Category;
+import com.sergiofah.model.Line;
+import com.sergiofah.model.Product;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class Main {
+    public static void main(String[] args) throws MalformedURLException {
+        Product product = new Product(Line.ARES, Category.NG, "6001-NG", "<Nada>", "https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png");
+        System.out.println(product.getLine());
+        System.out.println(product.getCategory());
+        System.out.println(product.getModel());
     }
 }
