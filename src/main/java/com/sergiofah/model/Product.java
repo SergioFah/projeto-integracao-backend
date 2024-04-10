@@ -1,6 +1,5 @@
 package com.sergiofah.model;
 
-import java.net.URL;
 
 public class Product {
     private Line line;
