@@ -16,4 +16,7 @@ public enum Category {
     public String getCategory() {
         return line.getLine() + category;
     }
+    public String getLine(){
+        return line.getLine();
+    }
 }

@@ -44,10 +44,9 @@ public class ProductController {
         return listString.collect(Collectors.toList());
     }
 
-    public List<String> getCategories(){
-        Stream<String> categoriesString = Arrays.stream(Category.values()).
-                map(Category::getCategory);
-        return categoriesString.collect(Collectors.toList());
+    public List<Category> getCategories(){
+        Stream<Category> categories = Arrays.stream(Category.values());
+        return categories.collect(Collectors.toList());
     }
     public List<String> getProductsFromCategory(String category){
         return productList.stream()
@@ -55,7 +54,7 @@ public class ProductController {
                 map(Product::getModel).
                 collect(Collectors.toList());
     }
-    public Optional<Product> getProduct(String productName){
+    public Optional<Product> getProductFromModel(String productName){
         return productList.stream()
                 .filter(p -> p.getModel().equals(productName))
                 .findFirst();

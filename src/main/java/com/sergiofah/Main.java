@@ -11,7 +11,5 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args){
-        ProductController pc = new ProductController();
-        System.out.println(pc.getProduct("Cronos 6001-NG"));
     }
 }
