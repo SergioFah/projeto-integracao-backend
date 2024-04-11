@@ -21,12 +21,12 @@ public enum Product{
     CRONOS_7023_NG(Line.CRONOS, Category.NG, "Cronos 7023-NG", "Lorem ipsum dolor", "https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png"),
     CRONOS_6001_NG(Line.CRONOS, Category.NG, "Cronos 6001-NG", "Lorem ipsum dolor", "https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png"),
 
-    ARES_7021(Line.ARES, Category.TB, "Ares 7021", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" ),
-    ARES_7031(Line.ARES, Category.TB, "Ares 7031", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" ),
-    ARES_7023(Line.ARES, Category.TB, "Ares 7023", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" ),
-    ARES_8023_15(Line.ARES, Category.THS, "Ares 8023 15", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" ),
-    ARES_8023_200(Line.ARES, Category.THS, "Ares 8023 200", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" ),
-    ARES_8023_25(Line.ARES, Category.THS, "Ares 8023 2,5", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/CRONOS-6001-A-2.png" );
+    ARES_7021(Line.ARES, Category.TB, "Ares 7021", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/ARES-7021.png" ),
+    ARES_7031(Line.ARES, Category.TB, "Ares 7031", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/ARES-7031.png" ),
+    ARES_7023(Line.ARES, Category.TB, "Ares 7023", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/Ares-7023.png" ),
+    ARES_8023_15(Line.ARES, Category.THS, "Ares 8023 15", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/Ares-8023-15.png" ),
+    ARES_8023_200(Line.ARES, Category.THS, "Ares 8023 200", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/Ares-8023-200.png" ),
+    ARES_8023_25(Line.ARES, Category.THS, "Ares 8023 2,5", "Lorem ipsum dolor","https://www.eletraenergy.com.br/wp-content/uploads/2022/09/Ares-8023-15.png" );
 
     private final Line line;
     private final Category category;
