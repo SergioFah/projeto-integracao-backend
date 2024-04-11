@@ -1,11 +1,11 @@
 package com.sergiofah.model;
 
 public enum Category {
-    OLD(" Old", Line.CRONOS),
-    L(" L", Line.CRONOS),
-    NG("-NG", Line.CRONOS),
-    TB(" TB", Line.ARES),
-    THS(" THS", Line.ARES);
+    OLD("Cronos Old", Line.CRONOS),
+    L("Cronos L", Line.CRONOS),
+    NG("Cronos-NG", Line.CRONOS),
+    TB("Ares TB", Line.ARES),
+    THS("Ares THS", Line.ARES);
 
     private final String category;
     private final Line line;
@@ -14,7 +14,7 @@ public enum Category {
         this.line = line;
     }
     public String getCategory() {
-        return line.getLine() + category;
+        return category;
     }
     public String getLine(){
         return line.getLine();
