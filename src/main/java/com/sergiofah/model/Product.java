@@ -21,7 +21,7 @@ public class Product implements Serializable {
     @Column(name = "model", unique = true)
     private String model;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "image_url")
