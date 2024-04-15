@@ -1,18 +1,35 @@
 package com.sergiofah.model;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
-public enum Line {
-    CRONOS("Cronos"),
-    ARES("Ares");
+@Entity
+@Table(name = "line")
+public class LineEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private final String line;
-    Line(String line) {
+    @Column(name = "line", unique = true)
+    private String line;
+
+    @OneToMany(mappedBy = "line")
+    private List<CategoryEntity> categories;
+
+    public LineEntity() {
+    }
+
+    public LineEntity(String line) {
         this.line = line;
     }
+
     public String getLine() {
         return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
     }
 
 }

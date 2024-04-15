@@ -1,22 +1,56 @@
 package com.sergiofah.model;
 
-public enum Category {
-    OLD("Cronos Old", Line.CRONOS),
-    L("Cronos L", Line.CRONOS),
-    NG("Cronos-NG", Line.CRONOS),
-    TB("Ares TB", Line.ARES),
-    THS("Ares THS", Line.ARES);
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
-    private final String category;
-    private final Line line;
-    Category (String category, Line line) {
+@Entity
+@Table(name = "category")
+public class CategoryEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "line_id")
+    private LineEntity line;
+
+    @Column(name = "category", unique = true)
+    private String category;
+
+    @OneToMany(mappedBy = "category")
+    private List<ProductEntity> products;
+
+    public CategoryEntity() {
+    }
+
+    public CategoryEntity(LineEntity line, String category) {
+        this.line = line;
         this.category = category;
+    }
+
+    public LineEntity getLine() {
+        return line;
+    }
+
+    public void setLine(LineEntity line) {
         this.line = line;
     }
+
     public String getCategory() {
         return category;
     }
-    public String getLine(){
-        return line.getLine();
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public List<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
     }
 }
