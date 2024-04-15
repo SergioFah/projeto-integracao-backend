@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "category")
-public class CategoryEntity implements Serializable {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,27 +14,27 @@ public class CategoryEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "line_id")
-    private LineEntity line;
+    private Line line;
 
     @Column(name = "category", unique = true)
     private String category;
 
     @OneToMany(mappedBy = "category")
-    private List<ProductEntity> products;
+    private List<Product> products;
 
-    public CategoryEntity() {
+    public Category() {
     }
 
-    public CategoryEntity(LineEntity line, String category) {
+    public Category(Line line, String category) {
         this.line = line;
         this.category = category;
     }
 
-    public LineEntity getLine() {
+    public Line getLine() {
         return line;
     }
 
-    public void setLine(LineEntity line) {
+    public void setLine(Line line) {
         this.line = line;
     }
 
@@ -46,11 +46,11 @@ public class CategoryEntity implements Serializable {
         this.category = category;
     }
 
-    public List<ProductEntity> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductEntity> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 }

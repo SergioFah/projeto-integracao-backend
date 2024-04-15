@@ -5,18 +5,18 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "product")
-public class ProductEntity implements Serializable {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "line_id")
-    private LineEntity line;
+    private Line line;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private CategoryEntity category;
+    private Category category;
 
     @Column(name = "model", unique = true)
     private String model;
@@ -27,10 +27,10 @@ public class ProductEntity implements Serializable {
     @Column(name = "image_url")
     private String imageUrl;
 
-    public ProductEntity() {
+    public Product() {
     }
 
-    public ProductEntity(LineEntity line, CategoryEntity category, String model, String description, String imageUrl) {
+    public Product(Line line, Category category, String model, String description, String imageUrl) {
         this.line = line;
         this.category = category;
         this.model = model;
@@ -38,19 +38,19 @@ public class ProductEntity implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public LineEntity getLine() {
+    public Line getLine() {
         return line;
     }
 
-    public void setLine(LineEntity line) {
+    public void setLine(Line line) {
         this.line = line;
     }
 
-    public CategoryEntity getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryEntity category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "line")
-public class LineEntity implements Serializable {
+public class Line implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,12 +15,12 @@ public class LineEntity implements Serializable {
     private String line;
 
     @OneToMany(mappedBy = "line")
-    private List<CategoryEntity> categories;
+    private List<Category> categories;
 
-    public LineEntity() {
+    public Line() {
     }
 
-    public LineEntity(String line) {
+    public Line(String line) {
         this.line = line;
     }
 

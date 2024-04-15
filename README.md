@@ -4,7 +4,23 @@
 deverão ser executadas na integração de novos colaboradores da equipe de software da P&D da
 Eletra Energy Solutions.
 --------------------------
-## Projeto 02 (v2.0)
+## Projeto 03 (v2.0)
+
+###### (Java 8 + Maven + JavaFX)
+### Objetivos:
+Este projeto tem como objetivos:
+1. Apresentar a arquitetura de projeto onde oBack‑end se conecta a um banco de dados relacional.
+2. Como gerar um instalador de uma aplicação java com a jre (Java Runtime Environment) em‑
+barcada.
+
+### Entregas esperadas ao final do projeto 03:
+1. Repositórios front‑end e back‑end devidamente atualizados com TAGS do projeto 03.
+2. Disponibilização do instalador da aplicação projeto de integração de acordo com as especifica‑
+   ções do projeto 03.
+3. Arquivo de Backup do banco de dados compatível com a versão do projeto 03.
+
+--------------------------
+## Projeto 02 (v1.0)
 
 ###### (Java 8 + Maven + JavaFX)
 ### Objetivos:
