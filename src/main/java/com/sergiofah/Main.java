@@ -1,5 +1,6 @@
 package com.sergiofah;
 
+import com.sergiofah.controller.ProductDAO;
 import com.sergiofah.model.Category;
 import com.sergiofah.model.Line;
 import com.sergiofah.model.Product;
@@ -7,14 +8,14 @@ import com.sergiofah.model.Product;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 public class Main {
     public static void main(String[] args){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("projeto-integracao-backend");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        entityManager.getTransaction().begin();
-
+        /*
         Line ares = new Line("Ares");
         entityManager.persist(ares);
         Category aresTB = new Category(ares, "Ares TB");
@@ -29,5 +30,7 @@ public class Main {
         entityManager.persist(product2);
 
         entityManager.getTransaction().commit();
+
+         */
     }
 }
