@@ -1,20 +1,16 @@
 package com.sergiofah;
 
-import com.sergiofah.controller.ProductDAO;
-import com.sergiofah.model.Category;
-import com.sergiofah.model.Line;
-import com.sergiofah.model.Product;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
-
-
+@SpringBootApplication
 public class Main {
+
+
     public static void main(String[] args){
+        SpringApplication.run(Main.class, args);
+
+        System.out.println("Teste");
     /*
         //POPULA O BANCO DE DADOS
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("projeto-integracao-backend");
@@ -96,5 +92,6 @@ public class Main {
         entityManager.getTransaction().commit();
 
     */
+
     }
 }

@@ -1,5 +1,7 @@
 package com.sergiofah.model;
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,10 +12,12 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIncludeProperties(value = {"line"})
     @ManyToOne
     @JoinColumn(name = "line_id")
     private Line line;
 
+    @JsonIncludeProperties(value = {"category"})
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
