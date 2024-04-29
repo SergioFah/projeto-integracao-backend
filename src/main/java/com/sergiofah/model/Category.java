@@ -2,6 +2,8 @@ package com.sergiofah.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,8 +17,8 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
     @ManyToOne
+    @JsonIncludeProperties(value = {"id"})
     @JoinColumn(name = "line_id")
     private Line line;
 
@@ -39,8 +41,9 @@ public class Category implements Serializable {
         return line;
     }
 
-    public String getLineString(){
-        return line.getLine();
+
+    public Long getId() {
+        return id;
     }
 
     public void setLine(Line line) {

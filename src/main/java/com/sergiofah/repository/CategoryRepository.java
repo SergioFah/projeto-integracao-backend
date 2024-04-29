@@ -10,6 +10,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.awt.*;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-    @Query("SELECT c FROM Category c WHERE c.line.line = :l")
-    Iterable<Category> getCategoriesFromLine(String l);
+    @Query("SELECT c FROM Category c WHERE c.line.id = :l")
+    Iterable<Category> getCategoriesFromLine(Long l);
 }

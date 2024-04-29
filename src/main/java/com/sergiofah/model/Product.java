@@ -12,12 +12,12 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIncludeProperties(value = {"line"})
+    @JsonIncludeProperties(value = {"id"})
     @ManyToOne
     @JoinColumn(name = "line_id")
     private Line line;
 
-    @JsonIncludeProperties(value = {"category"})
+    @JsonIncludeProperties(value = {"id"})
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
@@ -44,6 +44,10 @@ public class Product implements Serializable {
 
     public Line getLine() {
         return line;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setLine(Line line) {

@@ -4,6 +4,7 @@ import com.sergiofah.model.Line;
 import com.sergiofah.model.Product;
 import com.sergiofah.repository.LineRepository;
 import com.sergiofah.repository.ProductRepository;
+import io.swagger.v3.oas.annotations.Operation;
 import javafx.scene.shape.HLineTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/line")
+@RequestMapping("/lines")
 public class LineController {
 
     @Autowired
@@ -25,6 +26,9 @@ public class LineController {
     public LineController(LineRepository lineRepository) {
         this.lineRepository = lineRepository;
     }
+
+    @Operation(summary = "Get all lines")
+
     @GetMapping
     public Iterable<Line> getLines(){
        return lineRepository.findAll();

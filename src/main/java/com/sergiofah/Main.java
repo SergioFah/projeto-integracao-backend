@@ -6,11 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Main {
 
-
     public static void main(String[] args){
         SpringApplication.run(Main.class, args);
 
-        System.out.println("Teste");
+        System.out.println("Server: ONLINE");
     /*
         //POPULA O BANCO DE DADOS
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("projeto-integracao-backend");
@@ -92,6 +91,5 @@ public class Main {
         entityManager.getTransaction().commit();
 
     */
-
     }
 }
