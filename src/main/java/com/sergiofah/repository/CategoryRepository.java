@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.awt.*;
+import java.util.List;
 
-public interface CategoryRepository extends CrudRepository<Category, Long> {
-    @Query("SELECT c FROM Category c WHERE c.line.id = :l")
-    Iterable<Category> getCategoriesFromLine(Long l);
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    List<Category> findByLineId(Long l);
 }
