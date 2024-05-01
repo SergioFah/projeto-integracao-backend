@@ -11,8 +11,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository productRepository;
+
     public List<ProductDTO> getProductFromCategoryId(Long id) {
         return this.productRepository
                 .findByCategoryId(id)

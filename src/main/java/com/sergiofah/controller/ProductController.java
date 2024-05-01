@@ -12,6 +12,7 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
     @GetMapping
     public List<ProductDTO> getProductFromCategory(@RequestParam Long category) {
         return this.productService.getProductFromCategoryId(category);
