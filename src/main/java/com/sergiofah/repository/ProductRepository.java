@@ -1,14 +1,10 @@
 package com.sergiofah.repository;
 
 import com.sergiofah.model.Product;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
-    @Query("SELECT p FROM Product p WHERE p.category.id = :id")
-    Iterable<Product> getProductListFromCategory(Long id);
+import java.util.List;
 
-    @Query("SELECT p FROM Product p WHERE p.id = :id")
-    Optional<Product> getProductFromModel(Long id);
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findByCategoryId(Long id);
 }
