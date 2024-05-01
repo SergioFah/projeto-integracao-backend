@@ -1,12 +1,21 @@
 package com.sergiofah.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "line")
-public class Line implements Serializable {
+public class Line {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,20 +25,5 @@ public class Line implements Serializable {
 
     @OneToMany(mappedBy = "line")
     private List<Category> categories;
-
-    public Line() {
-    }
-
-    public Line(String line) {
-        this.line = line;
-    }
-
-    public String getLine() {
-        return line;
-    }
-
-    public void setLine(String line) {
-        this.line = line;
-    }
 
 }
