@@ -14,7 +14,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public List<CategoryDTO> getCategories(@RequestParam(name = "line", required = false) Long line){
+    public List<CategoryDTO> getCategories(@RequestParam(name = "line", required = false) Long line) {
         return categoryService.getCategories(line);
     }
 }

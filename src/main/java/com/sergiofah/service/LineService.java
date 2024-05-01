@@ -16,7 +16,7 @@ public class LineService {
     @Autowired
     private LineRepository lineRepository;
 
-    public List<LineDTO> getLines(){
+    public List<LineDTO> getLines() {
         return lineRepository
                 .findAll()
                 .stream()
@@ -24,7 +24,7 @@ public class LineService {
                 .collect(Collectors.toList());
     }
 
-    private LineDTO convertLineToDTO(Line line){
+    private LineDTO convertLineToDTO(Line line) {
         LineDTO lineDTO = new LineDTO();
         lineDTO.setId(line.getId());
         lineDTO.setLine(line.getLine());

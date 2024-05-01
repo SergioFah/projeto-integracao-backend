@@ -17,7 +17,7 @@ public class LineController {
     private LineService lineService;
 
     @GetMapping
-    public List<LineDTO> getLines(){
+    public List<LineDTO> getLines() {
        return lineService.getLines();
     }
 

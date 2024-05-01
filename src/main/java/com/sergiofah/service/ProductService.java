@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
-    public List<ProductDTO> getProductFromCategoryId(Long id){
+    public List<ProductDTO> getProductFromCategoryId(Long id) {
         return this.productRepository
                 .findByCategoryId(id)
                 .stream()
@@ -21,11 +21,13 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public ProductDTO getProductById(Long id){
-        return convertProductToDTO(this.productRepository.findById(id).get());
+    public ProductDTO getProductById(Long id) {
+        return convertProductToDTO(this.productRepository
+                .findById(id)
+                .get());
     }
 
-    private ProductDTO convertProductToDTO(Product product){
+    private ProductDTO convertProductToDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());
         productDTO.setModel(product.getModel());

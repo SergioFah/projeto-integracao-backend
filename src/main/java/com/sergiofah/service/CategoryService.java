@@ -14,7 +14,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public List<CategoryDTO> getCategories(Long id){
+    public List<CategoryDTO> getCategories(Long id) {
         if(id != null)
             return this.categoryRepository
                     .findByLineId(id)
@@ -29,7 +29,7 @@ public class CategoryService {
         }
     }
 
-    private CategoryDTO convertCategoryToDTO(Category category){
+    private CategoryDTO convertCategoryToDTO(Category category) {
         CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setCategory(category.getCategory());
         categoryDTO.setId(category.getId());
