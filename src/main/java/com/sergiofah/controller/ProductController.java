@@ -17,6 +17,7 @@ public class ProductController {
     public List<ProductDTO> getProductFromCategory(@RequestParam Long category) {
         return this.productService.getProductFromCategoryId(category);
     }
+
     @GetMapping("/{model}")
     public ProductDTO getProductFromModel(@PathVariable Long model) {
         return this.productService.getProductById(model);
