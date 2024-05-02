@@ -1,39 +1,37 @@
 package com.sergiofah.model;
 
-import java.net.URL;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "product")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "line_id")
     private Line line;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
+
+    @Column(name = "model", unique = true)
     private String model;
-    private String descr;
-    private String imgUrl;
 
-    public Product(Line line, Category category, String model, String descr, String imgUrl) {
-        this.line = line;
-        this.category = category;
-        this.model = model;
-        this.descr = descr;
-        this.imgUrl = imgUrl;
-    }
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
-    public String getLine() {
-        return line.getLine();
-    }
-
-    public String getCategory() {
-        return (category.getCategory());
-    }
-
-    public String getModel() {
-        return (line.getLine() + " " + model);
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
+    @Column(name = "image_url")
+    private String imageUrl;
 }

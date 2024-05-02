@@ -1,22 +1,30 @@
 package com.sergiofah.model;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public enum Category {
-    OLD(" Old", Line.CRONOS),
-    L(" L", Line.CRONOS),
-    NG("-NG", Line.CRONOS),
-    TB(" TB", Line.ARES),
-    THS(" THS", Line.ARES);
+import javax.persistence.*;
+import java.util.List;
 
-    private final String category;
-    private final Line line;
-    Category (String category, Line line) {
-        this.category = category;
-        this.line = line;
-    }
-    public String getCategory() {
-        return line.getLine() + category;
-    }
-    public String getLine(){
-        return line.getLine();
-    }
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "category")
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "line_id")
+    private Line line;
+
+    @Column(name = "category", unique = true)
+    private String category;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

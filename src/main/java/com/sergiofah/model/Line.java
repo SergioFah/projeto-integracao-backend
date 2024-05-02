@@ -1,18 +1,29 @@
 package com.sergiofah.model;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public enum Line {
-    CRONOS("Cronos"),
-    ARES("Ares");
+import javax.persistence.*;
+import java.util.List;
 
-    private final String line;
-    Line(String line) {
-        this.line = line;
-    }
-    public String getLine() {
-        return line;
-    }
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "line")
+public class Line {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "line", unique = true)
+    private String line;
+
+    @OneToMany(mappedBy = "line")
+    private List<Category> categories;
 
 }
