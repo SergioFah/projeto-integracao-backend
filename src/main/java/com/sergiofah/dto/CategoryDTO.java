@@ -1,4 +1,5 @@
 package com.sergiofah.dto;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
