@@ -21,8 +21,9 @@ class LineControllerTest {
     private LineController lineController;
 
     @Test
-    void getLinesWithSuccessWhenVerified() {
+    public void getLinesTest01() {
         lineController.getLines();
+
         verify(lineService, times(1)).getLines();
     }
 }

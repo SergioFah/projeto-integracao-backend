@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.util.AssertionErrors.assertEquals;
+
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,60 +33,33 @@ class ProductServiceTest {
     private ProductService productService;
 
     @Test
-    void getProductsFromCategoryIdWithSuccessWhenReturnNotNull() {
+    public void getProductsFromCategoryIdTest01() {
         Long category_id = 1L;
         Line line = Line.builder().id(1L).line("line").build();
         Category category = Category.builder().id(category_id).category("category").line(line).build();
         List<Product> productList = new ArrayList<>();
-        productList.add(Product.builder().model("model").line(line).category(category).imageUrl("url").description("descr").build());
+        productList.add(Product.builder().id(1L).model("model").line(line).category(category).imageUrl("url").description("descr").build());
         when(productRepository.findByCategoryId(Mockito.anyLong())).thenReturn(productList);
 
         List<ProductDTO> resultList = productService.getProductFromCategoryId(category_id);
 
-        verify(productRepository, times(1)).findByCategoryId(category_id);
         Assertions.assertThat(resultList).isNotNull();
-    }
-
-    @Test
-    void getProductsFromCategoryIdWithSuccessWhenAssertCategory() {
-        Long category_id = 1L;
-        Line line = Line.builder().id(1L).line("line").build();
-        Category category = Category.builder().id(category_id).category("category").line(line).build();
-        List<Product> productList = new ArrayList<>();
-        productList.add(Product.builder().model("model").line(line).category(category).imageUrl("url").description("descr").build());
-        when(productRepository.findByCategoryId(Mockito.anyLong())).thenReturn(productList);
-
-        List<ProductDTO> resultList = productService.getProductFromCategoryId(category_id);
-
         verify(productRepository, times(1)).findByCategoryId(category_id);
-        assertEquals(productList.get(0).getCategory().getId(), resultList.get(0).getCategoryId());
+        assertArrayEquals(productList.toArray(),resultList.toArray());
     }
 
     @Test
-    void getProductByIdWithSuccessWhenReturnNotNull() {
+    void getProductByIdTest01() {
         Long id = 1L;
-        Line line = Line.builder().line("line").build();
-        Category category = Category.builder().category("category").line(line).build();
-        Optional<Product> product = Optional.ofNullable(Product.builder().model("model").line(line).category(category).imageUrl("url").description("descr").build());
+        Line line = Line.builder().id(id).line("line").build();
+        Category category = Category.builder().id(id).category("category").line(line).build();
+        Optional<Product> product = Optional.ofNullable(Product.builder().id(id).model("model").line(line).category(category).imageUrl("url").description("descr").build());
         when(productRepository.findById(Mockito.anyLong())).thenReturn(product);
 
         ProductDTO productResult = productService.getProductById(id);
 
-        verify(productRepository, times(1)).findById(id);
         Assertions.assertThat(productResult).isNotNull();
-    }
-
-    @Test
-    void getProductByIdWithSuccessWhenAssertValue() {
-        Long id = 1L;
-        Line line = Line.builder().line("line").build();
-        Category category = Category.builder().category("category").line(line).build();
-        Optional<Product> product = Optional.ofNullable(Product.builder().model("model").line(line).category(category).imageUrl("url").description("descr").build());
-        when(productRepository.findById(Mockito.anyLong())).thenReturn(product);
-
-        ProductDTO productResult = productService.getProductById(id);
-
         verify(productRepository, times(1)).findById(id);
-        assertEquals(product.get().getModel(), productResult.getModel());
+        assertEquals("Checking if getProductById is returning the expected values", product.get(), productResult);
     }
 }

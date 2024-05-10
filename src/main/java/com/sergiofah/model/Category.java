@@ -1,4 +1,6 @@
 package com.sergiofah.model;
+import com.sergiofah.dto.CategoryDTO;
+import com.sergiofah.dto.LineDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,4 +27,16 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null) return false;
+
+        if(object.getClass() == CategoryDTO.class){
+            CategoryDTO categoryDTO = (CategoryDTO) object;
+            return this.id.equals(categoryDTO.getId()) && (this.category.equals(categoryDTO.getCategory())) && (this.line.getId().equals(categoryDTO.getLineId()));
+        }
+        return false;
+    }
 }

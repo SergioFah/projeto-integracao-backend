@@ -20,17 +20,16 @@ class ProductControllerTest {
     private ProductController productController;
 
     @Test
-    void getProductFromCategoryWithSuccessWhenVerified() {
+    public void getProductFromCategoryTest01() {
         Long id = 1L;
         productController.getProductFromCategory(id);
         verify(productService, times(1)).getProductFromCategoryId(id);
     }
 
     @Test
-    void getProductFromModelWithSuccessWhenVerified() {
+    public void getProductFromModelTest01() {
         Long id = 1L;
         productController.getProductFromModel(id);
         verify(productService, times(1)).getProductById(id);
-
     }
 }

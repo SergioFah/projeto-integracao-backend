@@ -20,8 +20,9 @@ class CategoryControllerTest {
     private CategoryController categoryController;
 
     @Test
-    void getCategoriesWithSuccessWhenVerified() {
+    public void getCategoriesTest01() {
         categoryController.getCategories(1L);
+
         verify(categoryService, times(1)).getCategories(Mockito.anyLong());
     }
 }
