@@ -1,9 +1,8 @@
 package com.sergiofah.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.sergiofah.dto.CategoryDTO;
+import com.sergiofah.dto.ProductDTO;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "product")
 public class Product {
@@ -34,4 +34,20 @@ public class Product {
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null) return false;
+
+        if(object.getClass().equals(ProductDTO.class)){
+            ProductDTO productDTO = (ProductDTO) object;
+            return this.id.equals(productDTO.getId()) && (this.category.getId().equals(productDTO.getCategoryId()))
+                    && (this.line.getId().equals(productDTO.getLineId()))
+                    && (this.model.equals(productDTO.getModel()))
+                    && (this.description.equals(productDTO.getDescription())
+                    && (this.imageUrl.equals(productDTO.getImageUrl())));
+        }
+        return false;
+    }
 }

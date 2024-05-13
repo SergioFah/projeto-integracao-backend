@@ -1,9 +1,7 @@
 package com.sergiofah.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.sergiofah.dto.LineDTO;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +10,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "line")
 public class Line {
@@ -26,4 +25,15 @@ public class Line {
     @OneToMany(mappedBy = "line")
     private List<Category> categories;
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null) return false;
+
+        if(object.getClass().equals(LineDTO.class)){
+            LineDTO lineDTO = (LineDTO) object;
+            return this.id.equals(lineDTO.getId()) && (this.line.equals(lineDTO.getLine()));
+        }
+        return false;
+    }
 }
