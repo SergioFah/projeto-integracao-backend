@@ -40,11 +40,13 @@ public class Product {
         if (this == object) return true;
         if (object == null) return false;
 
-        if(object.getClass() == ProductDTO.class){
+        if(object.getClass().equals(ProductDTO.class)){
             ProductDTO productDTO = (ProductDTO) object;
-            if(this.id.equals(productDTO.getId())&&(this.category.getId().equals(productDTO.getCategoryId()))&&(this.line.getId().equals(productDTO.getLineId()))&&(this.model.equals(productDTO.getModel()))&&(this.description.equals(productDTO.getDescription())&&(this.imageUrl.equals(productDTO.getImageUrl())))){
-                return true;
-            }
+            return this.id.equals(productDTO.getId()) && (this.category.getId().equals(productDTO.getCategoryId()))
+                    && (this.line.getId().equals(productDTO.getLineId()))
+                    && (this.model.equals(productDTO.getModel()))
+                    && (this.description.equals(productDTO.getDescription())
+                    && (this.imageUrl.equals(productDTO.getImageUrl())));
         }
         return false;
     }

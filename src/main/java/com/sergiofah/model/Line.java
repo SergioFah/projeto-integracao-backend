@@ -30,7 +30,7 @@ public class Line {
         if (this == object) return true;
         if (object == null) return false;
 
-        if(object.getClass() == LineDTO.class){
+        if(object.getClass().equals(LineDTO.class)){
             LineDTO lineDTO = (LineDTO) object;
             return this.id.equals(lineDTO.getId()) && (this.line.equals(lineDTO.getLine()));
         }

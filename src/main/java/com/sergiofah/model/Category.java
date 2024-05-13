@@ -33,9 +33,10 @@ public class Category {
         if (this == object) return true;
         if (object == null) return false;
 
-        if(object.getClass() == CategoryDTO.class){
+        if(object.getClass().equals(CategoryDTO.class)){
             CategoryDTO categoryDTO = (CategoryDTO) object;
-            return this.id.equals(categoryDTO.getId()) && (this.category.equals(categoryDTO.getCategory())) && (this.line.getId().equals(categoryDTO.getLineId()));
+            return this.id.equals(categoryDTO.getId()) && (this.category.equals(categoryDTO.getCategory()))
+                    && (this.line.getId().equals(categoryDTO.getLineId()));
         }
         return false;
     }

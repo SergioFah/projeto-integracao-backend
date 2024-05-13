@@ -21,8 +21,10 @@ class CategoryControllerTest {
 
     @Test
     public void getCategoriesTest01() {
+        //When
         categoryController.getCategories(1L);
 
+        //Then
         verify(categoryService, times(1)).getCategories(Mockito.anyLong());
     }
 }

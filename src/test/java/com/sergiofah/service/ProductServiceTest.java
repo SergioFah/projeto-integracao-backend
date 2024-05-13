@@ -34,15 +34,18 @@ class ProductServiceTest {
 
     @Test
     public void getProductsFromCategoryIdTest01() {
+        //Given
         Long category_id = 1L;
         Line line = Line.builder().id(1L).line("line").build();
         Category category = Category.builder().id(category_id).category("category").line(line).build();
         List<Product> productList = new ArrayList<>();
         productList.add(Product.builder().id(1L).model("model").line(line).category(category).imageUrl("url").description("descr").build());
-        when(productRepository.findByCategoryId(Mockito.anyLong())).thenReturn(productList);
 
+        //When
+        when(productRepository.findByCategoryId(Mockito.anyLong())).thenReturn(productList);
         List<ProductDTO> resultList = productService.getProductFromCategoryId(category_id);
 
+        //Then
         Assertions.assertThat(resultList).isNotNull();
         verify(productRepository, times(1)).findByCategoryId(category_id);
         assertArrayEquals(productList.toArray(),resultList.toArray());
@@ -50,14 +53,17 @@ class ProductServiceTest {
 
     @Test
     void getProductByIdTest01() {
+        //Given
         Long id = 1L;
         Line line = Line.builder().id(id).line("line").build();
         Category category = Category.builder().id(id).category("category").line(line).build();
         Optional<Product> product = Optional.ofNullable(Product.builder().id(id).model("model").line(line).category(category).imageUrl("url").description("descr").build());
-        when(productRepository.findById(Mockito.anyLong())).thenReturn(product);
 
+        //When
+        when(productRepository.findById(Mockito.anyLong())).thenReturn(product);
         ProductDTO productResult = productService.getProductById(id);
 
+        //Then
         Assertions.assertThat(productResult).isNotNull();
         verify(productRepository, times(1)).findById(id);
         assertEquals("Checking if getProductById is returning the expected values", product.get(), productResult);

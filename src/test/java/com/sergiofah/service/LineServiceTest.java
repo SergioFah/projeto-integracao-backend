@@ -30,15 +30,17 @@ class LineServiceTest {
 
     @Test
     public void getLinesWithSuccessWhenAssertValues() {
+        //Given
         List<Line> lineList = new ArrayList<>();
         lineList.add(Line.builder().id(1L).line("line1").build());
         lineList.add(Line.builder().id(2L).line("line2").build());
 
+        //When
         when(lineRepository.findAll()).thenReturn(lineList);
         List<LineDTO> resultList = lineService.getLines();
-
         verify(lineRepository, times(1)).findAll();
 
+        //Then
         Assertions.assertThat(resultList).isNotNull();
         assertArrayEquals(lineList.toArray(),resultList.toArray());
     }

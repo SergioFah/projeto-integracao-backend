@@ -29,31 +29,36 @@ class CategoryServiceTest {
     @InjectMocks
     private CategoryService categoryService;
 
-
     @Test
     public void getCategoriesTest01() {
+        //Given
         Long id = 1L;
         Line line = Line.builder().id(1L).line("line").build();
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(Category.builder().id(id).line(line).category("category1").build());
 
+        //When
         when(categoryRepository.findByLineId(Mockito.anyLong())).thenReturn(categoryList);
         List<CategoryDTO> resultList = categoryService.getCategories(id);
 
+        //Then
         verify(categoryRepository, times(1)).findByLineId(id);
         assertArrayEquals(categoryList.toArray(), resultList.toArray());
     }
 
     @Test
     public void getCategoriesTest02() {
+        //Given
         Long id = 1L;
         Line line = Line.builder().id(1L).line("line").build();
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(Category.builder().id(id).line(line).category("category1").build());
 
+        //When
         when(categoryRepository.findAll()).thenReturn(categoryList);
         List<CategoryDTO> resultList = categoryService.getCategories(null);
 
+        //Then
         verify(categoryRepository, times(1)).findAll();
         assertArrayEquals(categoryList.toArray(), resultList.toArray());
     }

@@ -21,15 +21,25 @@ class ProductControllerTest {
 
     @Test
     public void getProductFromCategoryTest01() {
+        //Given
         Long id = 1L;
+
+        //When
         productController.getProductFromCategory(id);
+
+        //Then
         verify(productService, times(1)).getProductFromCategoryId(id);
     }
 
     @Test
     public void getProductFromModelTest01() {
+        //Given
         Long id = 1L;
+
+        //When
         productController.getProductFromModel(id);
+
+        //Then
         verify(productService, times(1)).getProductById(id);
     }
 }
